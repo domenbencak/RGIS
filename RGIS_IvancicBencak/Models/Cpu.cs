@@ -1,8 +1,8 @@
 ﻿using System;
 namespace RGIS_IvancicBencak
 {
-	public class Cpu : Component
-	{
+    public class Cpu : Component
+    {
         private double clockspeed;
         private int cores;
         private int threads;
@@ -12,7 +12,6 @@ namespace RGIS_IvancicBencak
             throw new System.NotImplementedException("Not implemented");
         }
 
-        private Configuration 1;
-	}
+    }
 }
 

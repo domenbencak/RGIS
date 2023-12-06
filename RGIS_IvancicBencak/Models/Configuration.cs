@@ -3,8 +3,8 @@ using System.Runtime.Intrinsics.Arm;
 
 namespace RGIS_IvancicBencak
 {
-	public class Configuration
-	{
+    public class Configuration
+    {
         private int id;
         private Cpu cpu;
         private Gpu gpu;
@@ -18,8 +18,6 @@ namespace RGIS_IvancicBencak
             throw new System.NotImplementedException("Not implemented");
         }
 
-        private Ram 1;
-		private BenchmarkScore 0..1;
-	}
+    }
 }
 

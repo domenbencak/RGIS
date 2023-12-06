@@ -3,8 +3,8 @@ using System.Runtime.Intrinsics.Arm;
 
 namespace RGIS_IvancicBencak
 {
-	public class Gpu : Component
-	{
+    public class Gpu : Component
+    {
         private Ram vRam;
 
         public Gpu GetGpu()
@@ -12,7 +12,6 @@ namespace RGIS_IvancicBencak
             throw new System.NotImplementedException("Not implemented");
         }
 
-        private Configuration 1;
-	}
+    }
 }
 

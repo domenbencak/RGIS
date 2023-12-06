@@ -1,8 +1,8 @@
 ﻿using System;
 namespace RGIS_IvancicBencak
 {
-	public class Game
-	{
+    public class Game
+    {
         private int id;
         private String brand;
         private String title;
@@ -19,7 +19,7 @@ namespace RGIS_IvancicBencak
             return this.popularity;
         }
 
-        private User 1;
-	}
+
+    }
 }
 

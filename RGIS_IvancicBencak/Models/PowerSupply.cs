@@ -1,8 +1,8 @@
 ﻿using System;
 namespace RGIS_IvancicBencak
 {
-	public class PowerSupply : Component
-	{
+    public class PowerSupply : Component
+    {
         private int wattage;
 
         public PowerSupply GetPowerSupply()
@@ -10,7 +10,6 @@ namespace RGIS_IvancicBencak
             throw new System.NotImplementedException("Not implemented");
         }
 
-        private Configuration 1;
-	}
+    }
 }
 

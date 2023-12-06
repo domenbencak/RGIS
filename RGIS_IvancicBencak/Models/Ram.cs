@@ -1,8 +1,8 @@
 ﻿using System;
 namespace RGIS_IvancicBencak
 {
-	public class Ram : Component
-	{
+    public class Ram : Component
+    {
         private String ddrVersion;
         private int quantity;
         private int speed;
@@ -13,7 +13,7 @@ namespace RGIS_IvancicBencak
             throw new System.NotImplementedException("Not implemented");
         }
 
-        private Configuration 1;
-	}
+
+    }
 }
 

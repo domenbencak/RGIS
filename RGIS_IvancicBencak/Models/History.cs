@@ -1,8 +1,8 @@
 ﻿using System;
 namespace RGIS_IvancicBencak
 {
-	public class History
-	{
+    public class History
+    {
         private int id;
         private List<Game> gameHistory;
         private List<Configuration> configurationHistory;
@@ -20,8 +20,7 @@ namespace RGIS_IvancicBencak
             return this.configurationHistory;
         }
 
-        private User 0..1;
 
-	}
+    }
 }
 
