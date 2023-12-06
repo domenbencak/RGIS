@@ -27,7 +27,8 @@ jobs:
           context: .
           file: ./RGIS_IvancicBencak/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rgis:latest
+          tags: |
+          ${{ secrets.DOCKER_HUB_USERNAME }}/rgis:${{ steps.commit_hash.outputs.hash }}
 
       - name: Logout from Docker Hub
         run: docker logout
