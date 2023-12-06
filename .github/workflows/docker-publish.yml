@@ -23,7 +23,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
         with:
-          context: ../.github/workflows
+          context: ../RGIS_IvancicBencak
           file: Dockerfile
           push: true
           tags: rgis:latest
