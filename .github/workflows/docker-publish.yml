@@ -21,9 +21,13 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      - name: Get short commit hash
-        id: commit_hash
-        run: echo "::set-output name=hash::$(git rev-parse --short HEAD)"
+      - name: Get short commit hash and commit message
+        id: commit_info
+        run: |
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          echo "::set-output name=hash::${COMMIT_HASH}"
+          echo "::set-output name=message::${COMMIT_MESSAGE}"
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
@@ -31,6 +35,7 @@ jobs:
           context: .
           file: ./RGIS_IvancicBencak/Dockerfile
           push: true
-          tags: domenbencak/rgis:latest
+          tags: domenbencak/rgis:${{ steps.commit_info.outputs.hash }}-${{ steps.commit_info.outputs.message }}
+
       - name: Logout from Docker Hub
         run: docker logout
