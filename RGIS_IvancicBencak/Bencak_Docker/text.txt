@@ -1,0 +1,2 @@
+docker build -t rigs:v1 .
+docker run -p 1234:80 -p 1235:443 -d rgis:v1 
