@@ -19,7 +19,12 @@ namespace RGIS_IvancicBencak
             return this.popularity;
         }
 
-
+        public string GetGameSpecifications(string game)
+        {
+            // Vrne minimalne specifikacije glede na izbrano igro
+            // Primer: lahko bi bili podatki iz podatkovne baze ali trde kode
+            return this.minimumRequirement.ToString();
+        }
     }
 }
 

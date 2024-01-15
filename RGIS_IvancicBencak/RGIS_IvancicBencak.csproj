@@ -11,4 +11,8 @@
     <!-- Add other package references as needed -->
   </ItemGroup>
 
+   <ItemGroup>
+     <Content Remove="Pages\VnesiKonfiguracijo.cshtml" />
+     <Content Remove="Pages\MinimalneSpecifikacije.cshtml" />
+   </ItemGroup>
 </Project>

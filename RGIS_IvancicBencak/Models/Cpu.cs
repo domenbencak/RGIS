@@ -12,6 +12,10 @@ namespace RGIS_IvancicBencak
             throw new System.NotImplementedException("Not implemented");
         }
 
+        public override string ToString()
+        {
+            return clockspeed.ToString() + "GHz, " + cores.ToString() + " jeder, " + threads.ToString() + "niti.";
+        }
     }
 }
 

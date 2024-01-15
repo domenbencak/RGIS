@@ -13,6 +13,10 @@ namespace RGIS_IvancicBencak
             throw new System.NotImplementedException("Not implemented");
         }
 
+        public override string ToString()
+        {
+            return ddrVersion + ", " + quantity.ToString() + "GB.";
+        }
 
     }
 }

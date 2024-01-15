@@ -18,6 +18,11 @@ namespace RGIS_IvancicBencak
             throw new System.NotImplementedException("Not implemented");
         }
 
+        public override string ToString()
+        {
+            return "Cpu: " + cpu.ToString() + ", gpu: " + gpu.ToString() + ", ram: " + ram.ToString();
+        }
+
     }
 }
 
