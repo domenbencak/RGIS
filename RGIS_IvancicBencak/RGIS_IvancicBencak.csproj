@@ -13,6 +13,5 @@
 
    <ItemGroup>
      <Content Remove="Pages\VnesiKonfiguracijo.cshtml" />
-     <Content Remove="Pages\MinimalneSpecifikacije.cshtml" />
    </ItemGroup>
 </Project>

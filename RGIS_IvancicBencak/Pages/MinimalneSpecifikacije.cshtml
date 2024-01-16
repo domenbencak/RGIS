@@ -1,10 +1,10 @@
 ﻿@page
-@model MinimalneSpecifikacijeModel
+@model RGIS_IvancicBencak.MinimalneSpecifikacijeModel
 @{
     ViewData["Title"] = "Minimalne specifikacije";
 }
-
-<h2>Seznam Iger</h2>
+<h1>@ViewData["Title"]</h1>
+<h2>Seznam iger</h2>
 
 <form method="post">
     <label for="games">Izberi igro:</label>
@@ -14,6 +14,6 @@
 
 @if (Model.SelectedGame != null)
 {
-<h3>Specifikacije za @Model.SelectedGame</h3>
-<p>Minimalne specifikacije: @Model.GetGameSpecifications(Model.SelectedGame)</p>
+    <h3>Specifikacije za @Model.SelectedGame</h3>
+    <p>Minimalne specifikacije: @Model.GetGameSpecifications(Model.SelectedGame)</p>
 }
