@@ -8,12 +8,11 @@
 
 <form method="post">
     <label for="games">Izberi igro:</label>
-    <select id="games" name="selectedGame" asp-items="Model.GameSelectList"></select>
+    <select id="games" name="selectedGame"></select>
     <button type="submit">Prikaži specifikacije</button>
 </form>
 
-@if (Model.SelectedGame != null)
-{
-    <h3>Specifikacije za @Model.SelectedGame</h3>
-    <p>Minimalne specifikacije: @Model.GetGameSpecifications(Model.SelectedGame)</p>
-}
+
+<h3>Specifikacije za igro</h3>
+<p>Minimalne specifikacije:</p>
+

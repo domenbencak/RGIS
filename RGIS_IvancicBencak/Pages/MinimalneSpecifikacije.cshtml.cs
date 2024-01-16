@@ -19,5 +19,10 @@ namespace RGIS_IvancicBencak
         public void OnGet()
         {
         }
+
+        public string GetGameSpecifications(string game)
+        {
+            return game.ToString();
+        }
     }
 }

@@ -1,0 +1,29 @@
+﻿@page
+@model RGIS_IvancicBencak.Pages.KonfiguracijaModel
+@{
+    ViewData["Title"] = "Computer Configuration";
+}
+
+<h2>Dodaj konfiguracijo</h2>
+
+<form method="post">
+    <div>
+        <label for="cpu">CPU:</label>
+        <input type="text" id="cpu" name="Cpu" asp-for="Cpu" />
+    </div>
+
+    <div>
+        <label for="gpu">GPU:</label>
+        <input type="text" id="gpu" name="Gpu" asp-for="Gpu" />
+    </div>
+
+    <div>
+        <label for="ram">RAM:</label>
+        <input type="text" id="ram" name="Ram" asp-for="Ram" />
+    </div>
+
+    <div>
+        <button type="submit">Shrani konfiguracijo</button>
+    </div>
+</form>
+
