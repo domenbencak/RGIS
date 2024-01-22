@@ -1,30 +1,41 @@
 ﻿using System;
+
 namespace RGIS_IvancicBencak
 {
     public class Game
     {
-        private int id;
-        private String brand;
-        private String title;
-        private Configuration minimumRequirement;
-        private String base64Image;
-        private int popularity;
+        public int Id { get; set; }
+        public string Brand { get; set; }
+        public string Title { get; set; }
+        public int Popularity { get; set; }
+        public Configuration MinimumRequirement { get; set; }
+        public string Base64Image { get; set; }
 
-        public Game GetGame()
+        // Constructor
+        public Game(int id, string brand, string title, int popularity, Configuration minRequirement, string base64Image)
         {
-            throw new System.NotImplementedException("Not implemented");
-        }
-        public int GetPopularity()
-        {
-            return this.popularity;
+            Id = id;
+            Brand = brand;
+            Title = title;
+            Popularity = popularity;
+            MinimumRequirement = minRequirement;
+            Base64Image = base64Image;
         }
 
-        public string GetGameSpecifications(string game)
-        {
-            // Vrne minimalne specifikacije glede na izbrano igro
-            // Primer: lahko bi bili podatki iz podatkovne baze ali trde kode
-            return this.minimumRequirement.ToString();
-        }
+      
+
+            public Configuration GetGameSpecifications(string selectedTitle)
+            {
+                if (this.Title == selectedTitle)
+                {
+                    return MinimumRequirement;
+                }
+                else
+                {
+                    // Handle the case where the provided title doesn't match
+                    return null; // or throw an exception, return default values, etc.
+                }
+            }
+        
     }
 }
-

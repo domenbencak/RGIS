@@ -1,23 +1,54 @@
 ﻿@page
 @model RGIS_IvancicBencak.Pages.LoginModel
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Prijava";
 }
 
-<h2>Login</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RGIS_IvancicBencak</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
 
-<form method="post">
-    <div>
-        <label for="username">Uporabniško ime:</label>
-        <input type="text" id="username" name="Username" />
+    <div class="container login-container">
+        <h2>Prijavi se za shranjevanje svojih konfiguracij, zgodovine in mnogih drugih funkcij!</h2>
+        <form method="post" action="" onsubmit="return checkLogin()">
+            <div class="form-group">
+                <label for="username">Uporabniško ime:</label>
+                <input type="text" id="username" name="Username" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Geslo:</label>
+                <input type="password" id="password" name="Password" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Prijava</button>
+            </div>
+        </form>
+
+        <script>function checkLogin() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+
+                if (username === "domen" && password === "domen123") {
+                    alert("Uspešna prijava!");
+                    window.location.href = "/Index";
+                    return false;
+                } else {
+                    alert("Neuspešna prijava. Preverite uporabniško ime in geslo.");
+                    return false;
+                }
+            }</script>
     </div>
 
-    <div>
-        <label for="password">Geslo:</label>
-        <input type="password" id="password" name="Password" />
-    </div>
-
-    <div>
-        <button type="submit">Prijava</button>
-    </div>
-</form>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

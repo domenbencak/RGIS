@@ -14,5 +14,127 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #3498db; /* Light blue color for the navbar */
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    transition: color 0.3s;
+    border: 2px solid #ffffff; /* Add white border to the buttons */
+    border-radius: 20px; /* Increase border-radius for rounded corners */
+    padding: 8px 15px; /* Adjust padding for better appearance */
+    background-color: transparent; /* Set initial background color as transparent */
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #ffffff; /* Fill the button background with white on hover */
+    color: #3498db !important; /* Change text color on hover */
+}
+
+
+.login-container {
+    max-width: 800px;
+    margin: 100px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .login-container h2 {
+        text-align: center;
+        color: #3498db; /* Blue header color */
+    }
+
+.form-group {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0px 140px;
+}
+
+label {
+    color: #495057; /* Dark color for labels */
+}
+
+input.form-control {
+    border: 1px solid #ced4da; /* Light border color */
+    border-radius: 20px;
+}
+
+button.btn-primary {
+    background-color: #3498db; /* Darker blue on hover */
+    border: 1px solid #3498db;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+    button.btn-primary:hover {
+        background-color: transparent; /* Blue button color */
+
+        color: #3498db;
+    }
+
+
+.specs-h1, .specs-h2, .specs-h3 {
+    color: #3498db; /* Blue header color */
+}
+
+.specs-form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #495057; /* Dark color for labels */
+}
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+    .custom-dropdown select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #3498db; /* Light border color */
+        border-radius: 20px;
+        background-color: #ffffff; /* White background color */
+        cursor: pointer;
+        color: #3498db;
+    }
+
+    .custom-dropdown::after {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #ffffff;
+        background-color: #3498db;
+    }
+
+
+.specs-h3 {
+    margin-top: 20px;
+    color: #3498db; /* Blue color for subheadings */
+}
+
+p {
+    color: #495057; /* Dark color for paragraphs */
 }

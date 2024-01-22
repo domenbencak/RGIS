@@ -3,12 +3,10 @@ namespace RGIS_IvancicBencak
 {
 	public class Component
 	{
-        private int id;
-        private String brand;
-        private String name;
-        private String base64Image;
-
-        private int popularity;
+        public int Id { get; set; }
+        public string Brand { get; set; }
+        public string Title { get; set; }
+        public int Popularity { get; set; }
 
         public Component GetComponent()
         {
@@ -20,7 +18,7 @@ namespace RGIS_IvancicBencak
         }
         public int GetPopularity()
         {
-            return this.popularity;
+            return this.Popularity;
         }
 
     }
