@@ -121,34 +121,21 @@ namespace RGIS_IvancicBencak
 
         };
 
-        // Method to get game specifications
         public string GetGameSpecifications(string game)
         {
-            // Assuming 'game' is the selected game title
             var selectedGame = games.Find(g => g.Title == game);
 
-            // You can customize the return logic based on your requirements
             return selectedGame.Title ?? "No game found.";
         }
 
         public JsonResult OnGetGameSpecifications(string game)
         {
-            // Trim any leading or trailing spaces from the selected game title
             game = game.Trim();
 
-            // Assuming 'game' is the selected game title
             var selectedGame = games.Find(g => g.Title.Equals(game, StringComparison.OrdinalIgnoreCase));
 
-            // You can customize the return logic based on your requirements
             return new JsonResult(selectedGame);
         }
-
-
-
-
-
-
-
     }
 }
 

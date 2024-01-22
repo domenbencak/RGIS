@@ -32,8 +32,7 @@ namespace RGIS_IvancicBencak
                 }
                 else
                 {
-                    // Handle the case where the provided title doesn't match
-                    return null; // or throw an exception, return default values, etc.
+                    return null;
                 }
             }
         

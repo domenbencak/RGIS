@@ -13,18 +13,12 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
-<!-- ... (your existing HTML code) ... -->
-<!-- ... (your existing HTML code) ... -->
-
 <body>
 
     <div class="container">
-        <!-- ... (your existing HTML code) ... -->
-
         <form method="post">
             <div class="form-group">
                 <label for="games">Izberi igro:</label>
-                <!-- Update the onchange attribute to call the getGameSpecifications function -->
                 <select id="games" name="selectedGame" class="form-control" onchange="getGameSpecifications(this.value)">
                     @foreach (var game in Model.games)
                     {
@@ -35,19 +29,16 @@
         </form>
 
         <div class="card-body">
-            <!-- ... (your existing HTML code) ... -->
         </div>
     </div>
 
     <div id="gameSpecifications" data-selected-game="@Json.Serialize(Model.SelectedGame)">
-        <!-- Specifications will be dynamically updated here -->
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- ... (your existing HTML code) ... -->
 
-    <script>// Function to get game specifications
+    <script>
         function getGameSpecifications(selectedGame) {
             $.ajax({
                 url: '/MinimalneSpecifikacije?handler=GameSpecifications',
@@ -55,7 +46,6 @@
                 data: { game: selectedGame },
                 success: function (data) {
                     console.log('Received data:', data);
-                    // Update the page content
                     updatePageContent(data);
                 },
                 error: function (error) {
@@ -64,12 +54,10 @@
             });
         }
 
-        // Function to update the page content based on the selected game
         function updatePageContent(selectedGame) {
             console.log('Selected game:', selectedGame);
 
             if (selectedGame != null) {
-                // Update the HTML content dynamically based on the selected game
                 $('#gameSpecifications').html(`
                     <h5 class="card-title">${selectedGame.title} by ${selectedGame.brand}</h5>
                     <p class="card-text-cpu">CPU: ${selectedGame.minimumRequirement?.cpu?.name || 'N/A'}</p>
@@ -77,14 +65,8 @@
                     <p class="card-text-ram">RAM: ${selectedGame.minimumRequirement?.ram?.quantity || '8 GB'}</p>
                 `);
             } else {
-                // Display a message if no game is selected
                 $('#gameSpecifications').html('<p>No game selected.</p>');
             }
         }</script>
-
-    <!-- ... (your existing HTML code) ... -->
-
-
-
 </body>
 </html>
