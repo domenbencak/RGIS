@@ -66,7 +66,7 @@ namespace RGIS_IvancicBencak
                         gpuScore: 8800
                     )
                 ),
-                base64Image: "c29tZSBpbWFnZSBkYXRh",
+                base64Image: "https://cdn.akamai.steamstatic.com/steam/apps/2208920/capsule_616x353.jpg?t=1697654233",
                 popularity: 92
             ),
            new Game(
@@ -115,7 +115,7 @@ namespace RGIS_IvancicBencak
             gpuScore: 9200
         )
     ),
-    base64Image: "c29tZSBpbWFnZSBkYXRh",
+    base64Image: "https://cdn1.epicgames.com/b30b6d1b4dfd4dcc93b5490be5e094e5/offer/RDR2476298253_Epic_Games_Wishlist_RDR2_2560x1440_V01-2560x1440-2a9ebe1f7ee202102555be202d5632ec.jpg",
     popularity: 88
 ),
            new Game(
@@ -164,7 +164,7 @@ namespace RGIS_IvancicBencak
             gpuScore: 8500
         )
     ),
-    base64Image: "c29tZSBpbWFnZSBkYXRh",
+    base64Image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1462040/capsule_616x353.jpg?t=1696383548",
     popularity: 82
 ),
            new Game(
@@ -213,7 +213,7 @@ namespace RGIS_IvancicBencak
             gpuScore: 9800
         )
     ),
-    base64Image: "c29tZSBpbWFnZSBkYXRh",
+    base64Image: "https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077UltimateEdition_CDPROJEKTRED_Editions_S1_2560x1440-b8bfbed19257188c717a26ee5bf79b41",
     popularity: 92
 )
 

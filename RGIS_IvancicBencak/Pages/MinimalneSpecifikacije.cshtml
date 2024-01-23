@@ -20,6 +20,7 @@
                 <div class="form-group">
                     <label for="games">Izberi igro:</label>
                     <select id="games" name="selectedGame" class="form-control" onchange="getGameSpecifications(this.value)">
+                        <option value="" disabled selected>Izberi igro...</option>
                         @foreach (var game in Model.games)
                         {
                             <option value="@game.Title">@game.Title</option>
@@ -27,7 +28,6 @@
                     </select>
                 </div>
             </form>
-
             <div class="card-body">
             </div>
         </div>
@@ -35,13 +35,11 @@
         <div class="container" id="gameSpecifications" data-selected-game="@Json.Serialize(Model.SelectedGame)">
         </div>
     </div>
-   
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        function getGameSpecifications(selectedGame) {
+    <script>function getGameSpecifications(selectedGame) {
             $.ajax({
                 url: '/MinimalneSpecifikacije?handler=GameSpecifications',
                 type: 'GET',
@@ -61,10 +59,15 @@
 
             if (selectedGame != null) {
                 $('#gameSpecifications').html(`
-                    <h5 class="card-title">${selectedGame.title} by ${selectedGame.brand}</h5>
-                    <p class="card-text-cpu">CPU: ${selectedGame.minimumRequirement?.cpu?.name || 'N/A'}</p>
-                    <p class="card-text-gpu">GPU: ${selectedGame.minimumRequirement?.gpu?.name || 'N/A'}</p>
-                    <p class="card-text-ram">RAM: ${selectedGame.minimumRequirement?.ram?.quantity || '8 GB'}</p>
+                    <div class="card">
+                        <img src="${selectedGame.base64Image}" class="card-img-top" alt="${selectedGame.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${selectedGame.title} by ${selectedGame.brand}</h5>
+                            <p class="card-text-cpu">CPU: ${selectedGame.minimumRequirement?.cpu?.name || 'N/A'}</p>
+                            <p class="card-text-gpu">GPU: ${selectedGame.minimumRequirement?.gpu?.name || 'N/A'}</p>
+                            <p class="card-text-ram">RAM: ${selectedGame.minimumRequirement?.ram?.quantity || '8'} GB</p>
+                        </div>
+                    </div>
                 `);
             } else {
                 $('#gameSpecifications').html('<p>No game selected.</p>');
