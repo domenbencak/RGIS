@@ -1,0 +1,96 @@
+﻿@page
+@model RGIS_IvancicBencak.PopularnostIgreModel
+@{
+    ViewData["Title"] = "Popularnost iger";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RGIS_IvancicBencak</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="container login-container">
+        <h1>@ViewData["Title"]</h1>
+        <p></p>
+        <table class="table" id="gamesTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Number</th>
+                    <th onclick="sortTable(1)">Brand</th>
+                    <th onclick="sortTable(2)">Title</th>
+                    <th onclick="sortTable(3)">Popularity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                var sortedGames = Model.games.OrderByDescending(g => g.Popularity).ToList();
+                }
+
+                @foreach (var game in sortedGames)
+                {
+                <tr>
+                    <td>@(sortedGames.IndexOf(game) + 1)</td>
+                    <td>@game.Brand</td>
+                    <td>@game.Title</td>
+                    <td>@game.Popularity%</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>var popularityColumnIndex = 3;
+        var ascending = true;
+
+        function sortTable(columnIndex) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("gamesTable");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+
+                    x = rows[i].getElementsByTagName("td")[popularityColumnIndex];
+                    y = rows[i + 1].getElementsByTagName("td")[popularityColumnIndex];
+
+                    if (isNaN(x.innerHTML)) {
+                        shouldSwitch = x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase();
+                    } else {
+                        shouldSwitch = parseFloat(x.innerHTML) < parseFloat(y.innerHTML);
+                    }
+
+                    if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                        break;
+                    }
+                }
+            }
+
+            if (popularityColumnIndex === columnIndex) {
+                ascending = !ascending;
+                sortedGames.reverse();
+            } else {
+                ascending = true;
+                popularityColumnIndex = columnIndex;
+            }
+
+            for (i = 0; i < sortedGames.length; i++) {
+                rows[i + 1].innerHTML = "<td>" + (i + 1) + "</td><td>" + sortedGames[i].Brand + "</td><td>" + sortedGames[i].Title + "</td><td>" + sortedGames[i].Popularity + "%</td>";
+            }
+        }</script>
+</body>
+</html>

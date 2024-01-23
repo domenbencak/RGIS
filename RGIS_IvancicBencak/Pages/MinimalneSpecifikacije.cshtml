@@ -14,26 +14,28 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
+    <div class="container login-container">
+        <div class="container">
+            <form method="post">
+                <div class="form-group">
+                    <label for="games">Izberi igro:</label>
+                    <select id="games" name="selectedGame" class="form-control" onchange="getGameSpecifications(this.value)">
+                        @foreach (var game in Model.games)
+                        {
+                            <option value="@game.Title">@game.Title</option>
+                        }
+                    </select>
+                </div>
+            </form>
 
-    <div class="container">
-        <form method="post">
-            <div class="form-group">
-                <label for="games">Izberi igro:</label>
-                <select id="games" name="selectedGame" class="form-control" onchange="getGameSpecifications(this.value)">
-                    @foreach (var game in Model.games)
-                    {
-                        <option value="@game.Title">@game.Title</option>
-                    }
-                </select>
+            <div class="card-body">
             </div>
-        </form>
+        </div>
 
-        <div class="card-body">
+        <div class="container" id="gameSpecifications" data-selected-game="@Json.Serialize(Model.SelectedGame)">
         </div>
     </div>
-
-    <div id="gameSpecifications" data-selected-game="@Json.Serialize(Model.SelectedGame)">
-    </div>
+   
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

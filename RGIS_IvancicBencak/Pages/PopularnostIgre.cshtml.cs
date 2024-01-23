@@ -1,23 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
 
 namespace RGIS_IvancicBencak
 {
-    public class MinimalneSpecifikacijeModel : PageModel
+    public class PopularnostIgreModel : PageModel
     {
         private readonly ILogger<MinimalneSpecifikacijeModel> _logger;
 
-        public MinimalneSpecifikacijeModel(ILogger<MinimalneSpecifikacijeModel> logger)
+        public PopularnostIgreModel(ILogger<MinimalneSpecifikacijeModel> logger)
         {
             _logger = logger;
         }
-
-        public Game SelectedGame { get; set; }
-
-        // List of games
+        public bool ascending = false;
         public List<Game> games { get; set; } = new List<Game>
         {
             new Game(
@@ -123,7 +117,7 @@ namespace RGIS_IvancicBencak
     brand: "Square Enix",
     title: "Final Fantasy VII Remake",
     minRequirement: new Configuration(
-        id: 4,
+        id: 3,
         cpu: new Cpu
         {
             Brand = "Intel",
@@ -220,22 +214,5 @@ namespace RGIS_IvancicBencak
 
 
         };
-
-        public string GetGameSpecifications(string game)
-        {
-            var selectedGame = games.Find(g => g.Title == game);
-
-            return selectedGame.Title ?? "No game found.";
-        }
-
-        public JsonResult OnGetGameSpecifications(string game)
-        {
-            game = game.Trim();
-
-            var selectedGame = games.Find(g => g.Title.Equals(game, StringComparison.OrdinalIgnoreCase));
-
-            return new JsonResult(selectedGame);
-        }
     }
 }
-
