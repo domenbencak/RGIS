@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -22,11 +24,14 @@ namespace RGIS_IvancicBencak.Pages
         {
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost([FromForm] string name, [FromBody] Gpu gpu, [FromBody] Cpu cpu, [FromBody] Ram ram)
         {
-            // Shranjevanje
+            Configuration configuration = new Configuration(cpu, gpu, ram, name);
 
-            return RedirectToPage("/Index");
+            configs.Add(configuration);
+
+             
+            return RedirectToPage("/Konfiguracija");
         }
 
         public List<Cpu> cpus { get; set; } = new List<Cpu>
@@ -64,5 +69,10 @@ namespace RGIS_IvancicBencak.Pages
         };
 
         public List<Configuration> configs { get; set; } = new List<Configuration>();
+
+
+        
+
     }
+
 }

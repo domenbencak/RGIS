@@ -13,6 +13,7 @@ namespace RGIS_IvancicBencak
         public Ram Ram { get; set; }
         public string? Case { get; set; }
         public BenchmarkScore? BenchmarkScore { get; set; }
+        public string? ime { get; set; }
 
         // Constructor
         public Configuration(int id, Cpu cpu, Gpu gpu, PowerSupply powerSupply, Ram ram, string case_, BenchmarkScore benchmarkScore)
@@ -26,11 +27,12 @@ namespace RGIS_IvancicBencak
             BenchmarkScore = benchmarkScore;
         }
 
-        public Configuration(Cpu cpu, Gpu gpu, Ram ram)
+        public Configuration(Cpu cpu, Gpu gpu, Ram ram, string ime)
         {
             Cpu = cpu;
             Gpu = gpu;
             Ram = ram;
+            this.ime = ime;
         }
 
         public Configuration GetConfiguration()

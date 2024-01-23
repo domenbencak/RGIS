@@ -20,11 +20,15 @@
 
     <form method="post" action="">
         <div>
+            <label for="name">Ime konfiguracije:</label>
+            <input type="text" id="name" name="name" class="form-control" style="width: 50%"/>
+        </div>
+        <div>
             <label for="cpu">CPU:</label>
             <select id="cpu" name="izbranCPU" class="form-control" style="width: 50%">
                 @foreach (var cpu in Model.cpus)
                 {
-                    <option value="@cpu">@cpu.Name</option>
+                    <option value="@cpu.Name">@cpu.Name</option>
                 }
             </select>
         </div>
@@ -33,9 +37,9 @@
             <label for="gpu">GPU:</label>
             <select id="gpu" name="izbranGPU" class="form-control" style="width: 50%">
                 @foreach (var gpu in Model.gpus)
-                {
-                    <option value="@gpu">@gpu.Name</option>
-                }
+                    {
+                    <option value="@gpu.Name">@gpu.Name</option>
+                    }
             </select>
         </div>
 
@@ -43,32 +47,34 @@
             <label for="ram">RAM:</label>
             <select id="ram" name="izbranRAM" class="form-control" style="width: 50%">
                 @foreach (var ram in Model.rams)
-                {
-                    <option value="@ram">@ram.Name @ram.Quantity GB</option>
-                }
+                    {
+                    <option value="@ram.Name @ram.Quantity GB">@ram.Name @ram.Quantity GB</option>
+                    }
             </select>
         </div>
 
         <div>
             <br>
-            <button type="submit" class="btn btn-outline-primary">Shrani konfiguracijo</button>
+            <button type="submit" class="btn btn-outline-primary" onclick="shraniConfig()">Shrani konfiguracijo</button>
         </div>
     </form>
     <br>
-    <table class="table table-striped">
+    <table class="table table-striped" id="konfiguracije">
         <tr>
+            <th>Ime</th>
             <th>CPU</th>
             <th>GPU</th>
             <th>RAM</th>
         </tr>
         @foreach (var config in Model.configs)
-        {
+            {
             <tr>
+                <td>@config.ime</td>
                 <td>@config.Cpu.Name</td>
                 <td>@config.Gpu.Name</td>
                 <td>@config.Ram.Name  @config.Ram.Quantity GB</td>
             </tr>
-        }
+            }
     </table>
 
     <script>
@@ -76,10 +82,24 @@
             var cpu = document.getElementById("cpu").value;
             var gpu = document.getElementById("gpu").value;
             var ram = document.getElementById("ram").value;
-            let user = sessionStorage.getItem("user");
+            var name = document.getElementById("name").value;
 
-            if (cpu != "" && gpu != "" && ram != "") {
-                
+            var tabela = document.getElementById("konfiguracije");
+
+            if (name != "") {
+                var novaVrstica = tabela.insertRow();
+                var celica1 = novaVrstica.insertCell(0);
+                var celica2 = novaVrstica.insertCell(1);
+                var celica3 = novaVrstica.insertCell(2);
+                var celica4 = novaVrstica.insertCell(3);
+
+                celica1.innerHTML = name;
+                celica2.innerHTML = cpu;
+                celica3.innerHTML = gpu;
+                celica4.innerHTML = ram;
+            }
+            else {
+                alert("Vnesi ime konfiguracije!");
             }
             }</script>
 </body>
