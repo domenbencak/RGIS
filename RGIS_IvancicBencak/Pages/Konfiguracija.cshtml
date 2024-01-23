@@ -21,21 +21,37 @@
     <form method="post">
         <div>
             <label for="cpu">CPU:</label>
-            <input type="text" id="cpu" name="Cpu" asp-for="Cpu" />
+            <select id="cpu" name="izbranCPU" class="form-control" style="width: 50%">
+                @foreach (var cpu in Model.cpus)
+                {
+                    <option value="@cpu.Id">@cpu.Name</option>
+                }
+            </select>
         </div>
 
         <div>
             <label for="gpu">GPU:</label>
-            <input type="text" id="gpu" name="Gpu" asp-for="Gpu" />
+            <select id="gpu" name="izbranGPU" class="form-control" style="width: 50%">
+                @foreach (var gpu in Model.gpus)
+                {
+                    <option value="@gpu.Id">@gpu.Name</option>
+                }
+            </select>
         </div>
 
         <div>
             <label for="ram">RAM:</label>
-            <input type="text" id="ram" name="Ram" asp-for="Ram" />
+            <select id="ram" name="izbranRAM" class="form-control" style="width: 50%">
+                @foreach (var ram in Model.rams)
+                {
+                    <option value="@ram.Id">@ram.Name</option>
+                }
+            </select>
         </div>
 
         <div>
-            <button type="submit">Shrani konfiguracijo</button>
+            <br>
+            <button type="submit" class="btn btn-outline-primary">Shrani konfiguracijo</button>
         </div>
     </form>
     <script>
