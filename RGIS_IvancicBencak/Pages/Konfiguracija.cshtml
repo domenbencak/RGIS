@@ -18,13 +18,13 @@
 
     <h2>Dodaj konfiguracijo</h2>
 
-    <form method="post">
+    <form method="post" action="">
         <div>
             <label for="cpu">CPU:</label>
             <select id="cpu" name="izbranCPU" class="form-control" style="width: 50%">
                 @foreach (var cpu in Model.cpus)
                 {
-                    <option value="@cpu.Id">@cpu.Name</option>
+                    <option value="@cpu">@cpu.Name</option>
                 }
             </select>
         </div>
@@ -34,7 +34,7 @@
             <select id="gpu" name="izbranGPU" class="form-control" style="width: 50%">
                 @foreach (var gpu in Model.gpus)
                 {
-                    <option value="@gpu.Id">@gpu.Name</option>
+                    <option value="@gpu">@gpu.Name</option>
                 }
             </select>
         </div>
@@ -44,7 +44,7 @@
             <select id="ram" name="izbranRAM" class="form-control" style="width: 50%">
                 @foreach (var ram in Model.rams)
                 {
-                    <option value="@ram.Id">@ram.Name</option>
+                    <option value="@ram">@ram.Name @ram.Quantity GB</option>
                 }
             </select>
         </div>
@@ -54,6 +54,23 @@
             <button type="submit" class="btn btn-outline-primary">Shrani konfiguracijo</button>
         </div>
     </form>
+    <br>
+    <table class="table table-striped">
+        <tr>
+            <th>CPU</th>
+            <th>GPU</th>
+            <th>RAM</th>
+        </tr>
+        @foreach (var config in Model.configs)
+        {
+            <tr>
+                <td>@config.Cpu.Name</td>
+                <td>@config.Gpu.Name</td>
+                <td>@config.Ram.Name  @config.Ram.Quantity GB</td>
+            </tr>
+        }
+    </table>
+
     <script>
         function shraniConfig() {
             var cpu = document.getElementById("cpu").value;

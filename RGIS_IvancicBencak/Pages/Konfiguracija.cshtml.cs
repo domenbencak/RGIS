@@ -48,7 +48,7 @@ namespace RGIS_IvancicBencak.Pages
                 brand: "G.Skill",
                 name: "Ripjaws V",
                 ddrVersion: "DDR4",
-                quantity: 2,
+                quantity: 8,
                 speed: 3200,
                 latency: 16
             ),
@@ -62,5 +62,7 @@ namespace RGIS_IvancicBencak.Pages
                 latency: 16
             )
         };
+
+        public List<Configuration> configs { get; set; } = new List<Configuration>();
     }
 }
