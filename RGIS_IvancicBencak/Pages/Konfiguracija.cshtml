@@ -1,29 +1,53 @@
 ﻿@page
 @model RGIS_IvancicBencak.Pages.KonfiguracijaModel
 @{
+    User domen = new User("domen", "domen123");
     ViewData["Title"] = "Computer Configuration";
 }
 
-<h2>Dodaj konfiguracijo</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RGIS_IvancicBencak</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
 
-<form method="post">
-    <div>
-        <label for="cpu">CPU:</label>
-        <input type="text" id="cpu" name="Cpu" asp-for="Cpu" />
-    </div>
+    <h2>Dodaj konfiguracijo</h2>
 
-    <div>
-        <label for="gpu">GPU:</label>
-        <input type="text" id="gpu" name="Gpu" asp-for="Gpu" />
-    </div>
+    <form method="post">
+        <div>
+            <label for="cpu">CPU:</label>
+            <input type="text" id="cpu" name="Cpu" asp-for="Cpu" />
+        </div>
 
-    <div>
-        <label for="ram">RAM:</label>
-        <input type="text" id="ram" name="Ram" asp-for="Ram" />
-    </div>
+        <div>
+            <label for="gpu">GPU:</label>
+            <input type="text" id="gpu" name="Gpu" asp-for="Gpu" />
+        </div>
 
-    <div>
-        <button type="submit">Shrani konfiguracijo</button>
-    </div>
-</form>
+        <div>
+            <label for="ram">RAM:</label>
+            <input type="text" id="ram" name="Ram" asp-for="Ram" />
+        </div>
 
+        <div>
+            <button type="submit">Shrani konfiguracijo</button>
+        </div>
+    </form>
+    <script>
+        function shraniConfig() {
+            var cpu = document.getElementById("cpu").value;
+            var gpu = document.getElementById("gpu").value;
+            var ram = document.getElementById("ram").value;
+            let user = sessionStorage.getItem("user");
+
+            if (cpu != "" && gpu != "" && ram != "") {
+                @domen.ShraniKonfiguracijo(new Configuration(new Cpu(), new Gpu(), new Ram());
+            }
+            }</script>
+</body>
+</html>

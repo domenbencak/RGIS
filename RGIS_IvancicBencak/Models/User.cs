@@ -7,7 +7,7 @@ namespace RGIS_IvancicBencak
         private String username;
         private String password;
         private Configuration? personalConfiguration;
-        private List<Game> favoriteGames;
+        private List<Game>? favoriteGames;
         private History? history;
 
         public void SetGeslo(ref String password)
@@ -17,6 +17,17 @@ namespace RGIS_IvancicBencak
         public User GetUser()
         {
             throw new System.NotImplementedException("Not implemented");
+        }
+
+        public void ShraniKonfiguracijo(Configuration configuration)
+        {
+            this.personalConfiguration = configuration;
+        }
+
+        public User(string username, string password)
+        {
+            this.username = username;
+            this.password = password;
         }
 
     }

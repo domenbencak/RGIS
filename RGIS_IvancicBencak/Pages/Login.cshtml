@@ -40,6 +40,7 @@
                 if (username === "domen" && password === "domen123") {
                     alert("Uspešna prijava!");
                     window.location.href = "/Index";
+                    sessionStorage.setItem("user", username);
                     return false;
                 } else {
                     alert("Neuspešna prijava. Preverite uporabniško ime in geslo.");
